@@ -99,14 +99,22 @@ Ques 6: Differentiate between SQL and No-SQL.
     6. Support –
         Great support is available for all SQL database from their vendors. Also a lot of independent consultations are there who can help you with SQL database for a very large scale deployments but for some NoSQL database you still have to rely on community support and only limited outside experts are available for setting up and deploying your large scale NoSQL deployments.
 
-Ques 7: What is the difference between hardLink and the symlinks.
+Ques 7: What is the difference between hardLink and the symlinks.What happens when you
+remove the source to a symlink/hardlink?
 
 Answer:- Points to Consider,
 
-    1. A symbolic link does not contain the data in the target file. 2. A symbolic points to another entry somewhere in the file system.
-    2. A symbolic has the ability to link to directories, or to files on remote computers networked through NFS.
-    3. Deleting a target file for a symbolic link makes that link useless.
+        1. A symbolic link does not contain the data in the target file. 2. A symbolic points to another entry somewhere in the file system.
+        2. A symbolic has the ability to link to directories, or to files on remote computers networked through NFS.
+        3. Deleting a target file for a symbolic link makes that link useless.
+        4. A hard link preserves the contents of the file.
+        5. A hard link cannot be created for directories, and they cannot cross filesystem boundaries or span across partitions.
+        6. In a hardlink you can use any of the hardlink names created to execute a program or script in the same manner as the original name given.
+        7. Soft link can span across filesystem.
+        8. Soft links can link both files and directories.
 
-            ->A hard link preserves the contents of the file.
-            ->A hard link cannot be created for directories, and they cannot cross filesystem boundaries or span across partitions.
-            ->In a hardlink you can use any of the hardlink names created to execute a program or script i
+    Effects after removing the source of symlinks.
+        if the source file is deleted of the symlink ,symlink of that file no longer works or it becomes “dangling link” which points to nonexistent file .
+
+    Effects after removing the source of hardlinks.
+        If the source file is deleted ,the hard link still works and you will be able to access the file until the number of hard links to file isn’t 0(zero).
