@@ -114,7 +114,6 @@ Answer:- Points to Consider,
         8. Soft links can link both files and directories.
 
     Effects after removing the source of symlinks.
-        if the source file is deleted of the symlink ,symlink of that file no longer works or it becomes “dangling link” which points to nonexistent file .
-
-    Effects after removing the source of hardlinks.
-        If the source file is deleted ,the hard link still works and you will be able to access the file until the number of hard links to file isn’t 0(zero).
+        if the source file is deleted,
+            Symlinks:- symlink of that file no longer works or it becomes “dangling link” which points to nonexistent file .
+            Hardlinks:- the hard link still works and you will be able to access the file until the number of hard links to file isn’t 0(zero).
